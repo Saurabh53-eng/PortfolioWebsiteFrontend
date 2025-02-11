@@ -158,9 +158,11 @@ function HomePage() {
                             <div className="card h-100">
                                 <img src="https://via.placeholder.com/300x200" className="card-img-top img-fluid" alt="Project 2" />
                                 <div className="card-body">
-                                    <h5 className="card-title">Project 2</h5>
-                                    <p className="card-text">Description of the project goes here.</p>
-                                    <a href="#" className="btn btn-primary">View Details</a>
+                                    <h5 className="card-title">Food Delivery App Full Stack Java </h5>
+                                    <p className="card-text">JSP,JSTL,html,css,bootstrap as frontend and spring mvc,hibernate as backend.
+                                        Added OTP Verification system on forgot password. Software used ECLIPSE
+                                    </p>
+                                    <Link id='viewcode' to="https://github.com/Saurabh53-eng/FoodDeliveryJavaFullStack.git" target="_blank" className="btn btn-primary">View Code</Link>
                                 </div>
                             </div>
                         </div>
