@@ -1,4 +1,0 @@
-[build]
-  base = "my-app"   # Change this to your folder name
-  command = "npm run build"
-  publish = "my-app/build"
