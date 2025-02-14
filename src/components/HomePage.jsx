@@ -1,4 +1,5 @@
 import INotebook from '../image/INotebook.jpeg';
+import FoodWebImg from '../image/FoodDelivery.jpeg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router";
 import '../css/HomePage.css';
@@ -61,13 +62,14 @@ function HomePage() {
         }
 
         setErrors({}); // Clear errors if form is valid
+
+        const response = await axios.post("http://localhost:5000/api/contact", formData);
         try {
-            const response = await axios.post("http://localhost:5000/api/contact", formData);
             setResponseMessage(response.data.message);
             setFormData({ name: '', email: '', message: '' });
             setTimeout(() => setResponseMessage(''), 2000);
         } catch (error) {
-            setResponseMessage("Failed to send your message. Please try again later.");
+            setResponseMessage(response.data.error);
             console.error("Error sending form data:", error);
             setTimeout(() => setResponseMessage(''), 2000);
         }
@@ -146,7 +148,10 @@ function HomePage() {
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">INotebook MERN website</h5>
-                                    <p className="card-text">Added tokens for login using localstorage, logged user can add multiple notes stored in both frontend and backend, can edit and delete notes.</p>
+                                    <p className="card-text">Added tokens for login using localstorage, logged user can add multiple notes stored in both frontend and backend, can edit and delete notes.
+                                        Software Used Vs code
+                                    </p>
+
                                     <Link to="https://i-notebook-frontend-zeta.vercel.app/Signup" target="_blank" className="btn btn-primary">View Project</Link>
                                     <Link id='viewcode' to="https://github.com/Saurabh53-eng/INotebookMERN.git" target="_blank" className="btn btn-primary">View Code</Link>
                                 </div>
@@ -156,7 +161,20 @@ function HomePage() {
                         {/* Project 2 */}
                         <div className="col-md-4 mb-4">
                             <div className="card h-100">
-                                <img src="https://via.placeholder.com/300x200" className="card-img-top img-fluid" alt="Project 2" />
+                                <div className="image-container">
+                                    <img src={FoodWebImg}
+                                        alt="INotebook"
+                                        className="card-img-top img-fluid"
+                                        onClick={() => handleImageClick(FoodWebImg)} />
+                                    <div className="overlay">
+                                        <button
+                                            className="btn btn-light"
+                                            onClick={() => handleImageClick(FoodWebImg)}
+                                        >
+                                            View Image
+                                        </button>
+                                    </div>
+                                </div>
                                 <div className="card-body">
                                     <h5 className="card-title">Food Delivery App Full Stack Java </h5>
                                     <p className="card-text">JSP,JSTL,html,css,bootstrap as frontend and spring mvc,hibernate as backend.
@@ -249,7 +267,7 @@ function HomePage() {
                                     src={modalImage}
                                     alt="Modal"
                                     className="img-fluid"
-                                    style={{ width: "100%" }}
+                                    style={{ width: "100vw" }}
                                 />
                             </div>
                             <div className="modal-footer">
