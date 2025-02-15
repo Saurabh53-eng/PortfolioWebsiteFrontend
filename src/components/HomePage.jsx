@@ -63,7 +63,7 @@ function HomePage() {
 
         setErrors({}); // Clear errors if form is valid
 
-        const response = await axios.post("http://localhost:5000/api/contact", formData);
+        const response = await axios.post("https://portfolio-website-mern-liart.vercel.app/api/contact", formData);
         try {
             setResponseMessage(response.data.message);
             setFormData({ name: '', email: '', message: '' });
@@ -152,7 +152,7 @@ function HomePage() {
                                         Software Used Vs code
                                     </p>
 
-                                    <Link to="https://i-notebook-frontend-zeta.vercel.app/Signup" target="_blank" className="btn btn-primary">View Project</Link>
+                                    <Link to="https://warm-lokum-cefe65.netlify.app/login" target="_blank" className="btn btn-primary">View Project</Link>
                                     <Link id='viewcode' to="https://github.com/Saurabh53-eng/INotebookMERN.git" target="_blank" className="btn btn-primary">View Code</Link>
                                 </div>
                             </div>
